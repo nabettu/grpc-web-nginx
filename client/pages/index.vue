@@ -9,7 +9,6 @@
   </div>
 </template>
 <script>
-import {grpc} from "grpc-web-client"
 import {HelloServiceClient} from "~/assets/_proto/hello_grpc_web_pb"
 import {HelloRequest, HelloResponse} from "~/assets/_proto/hello_pb"
  export default {
