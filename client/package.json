@@ -1,0 +1,12 @@
+{
+  "name": "hello",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.6.1",
+    "grpc-web": "^1.0.2",
+    "grpc-web-client": "^0.6.3",
+    "nuxt": "^2.2.0"
+  }
+}

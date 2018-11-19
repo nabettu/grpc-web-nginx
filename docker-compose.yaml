@@ -1,0 +1,12 @@
+version: "3"
+services:
+  proxy:
+    image: nginx:1.15.6-alpine
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    volumes:
+      - ./proxy/nginx/common:/etc/nginx/common
+      - ./proxy/nginx/conf.d:/etc/nginx/conf.d
+      - ./proxy/keys:/ssl
