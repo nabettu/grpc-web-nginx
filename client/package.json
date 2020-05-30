@@ -1,12 +1,14 @@
 {
   "name": "hello",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "next"
   },
   "dependencies": {
     "google-protobuf": "^3.6.1",
     "grpc-web": "^1.0.2",
     "grpc-web-client": "^0.6.3",
-    "nuxt": "^2.2.0"
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
