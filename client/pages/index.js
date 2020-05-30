@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+
 import { HelloServiceClient } from "../assets/_proto/hello_grpc_web_pb";
 import { HelloRequest } from "../assets/_proto/hello_pb";
 
-export default () => {
+const helloClient = async name =>
+  await fetch("http://localhost:3000/api/hello?name=" + name).then(response => {
+    console.log({ response });
+    return response.json();
+  });
+
+const App = ({ data }) => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -25,8 +32,20 @@ export default () => {
           value={name}
         />
         <button onClick={hello}>send</button>
-        <p>Message: {message}</p>
+        <p>gRPC-web: Message: {message}</p>
+        <p>gRPC-node(SSR): {data}</p>
       </div>
     </div>
   );
 };
+
+App.getInitialProps = async () => {
+  const serverResponce = await helloClient("SSR");
+  console.log({ serverResponce });
+  if (serverResponce.err) {
+    return { data: serverResponce.err };
+  }
+  return { data: serverResponce };
+};
+
+export default App;
